@@ -9,14 +9,15 @@
 #import <Foundation/Foundation.h>
 #import <MapKit/MapKit.h>
 
-@interface InterestPoints : MKAnnotationView <NSCoding, MKAnnotation>
+@interface InterestPoints : MKPointAnnotation <NSCoding, MKAnnotation>
 
-@property NSString *name;
+//@property (nonatomic, copy) NSString *title; 
 @property NSMutableArray *comments;
 @property NSInteger rating;
 @property NSString *phoneNumber;
 @property NSString *address;
-@property CLLocationCoordinate2D coordinates;
+@property NSNumber *latitude;
+@property NSNumber *longitude;
 @property NSInteger categoryIdentifier;
 
 @end

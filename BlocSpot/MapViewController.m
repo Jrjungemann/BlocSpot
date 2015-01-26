@@ -70,9 +70,8 @@
             for (MKMapItem *item in response.mapItems) {
                 [self.annotations addObject:item];
                 InterestPoints *interestPoint = [[InterestPoints alloc]init];
-                interestPoint.coordinates = item.placemark.coordinate;
-                interestPoint.name = item.name;
-                interestPoint.phoneNumber = item.phoneNumber;
+                interestPoint.coordinate = item.placemark.coordinate;
+                interestPoint.title = item.name;
                 [self.mapView addAnnotation:interestPoint];
             }
     }];

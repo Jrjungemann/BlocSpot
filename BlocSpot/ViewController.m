@@ -166,7 +166,7 @@
     [self.goSearch removeFromSuperview];
     [self.cancelSearch removeFromSuperview];
     [self.clearSearch removeFromSuperview];
-    [self.mapViewController.view setFrame:CGRectMake(0, 0, self.viewWidth, self.viewHeight)];
+    [self.mapViewController.view setFrame:CGRectMake(0, 0, self.viewWidth, self.viewHeight - 64)];
     
     // Show the MapViewController
     if (self.currentlyVisibleController == self.mapViewController) {
@@ -174,7 +174,7 @@
     }
     
     [self addChildViewController:self.mapViewController];
-    [self.mapViewController.view setFrame:CGRectMake(0, 0, self.viewWidth, self.viewHeight)];
+    [self.mapViewController.view setFrame:CGRectMake(0, 0, self.viewWidth, self.viewHeight - 64)];
     [self.childView addSubview:self.mapViewController.view];
     [self.mapViewController didMoveToParentViewController:self];
     self.currentlyVisibleController = self.mapViewController;
@@ -185,7 +185,7 @@
     [self.goSearch removeFromSuperview];
     [self.cancelSearch removeFromSuperview];
     [self.clearSearch removeFromSuperview];
-    [self.mapViewController.view setFrame:CGRectMake(0, 50, self.viewWidth, self.viewHeight - 50)];
+    [self.mapViewController.view setFrame:CGRectMake(0, 50, self.viewWidth, self.viewHeight - 114)];
     
     [self.view addSubview:self.goSearch];
     [self.view addSubview:self.searchField];
