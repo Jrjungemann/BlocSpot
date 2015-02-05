@@ -7,10 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2AA9B3441A2CF996005C3DFE /* DataStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AA9B3431A2CF996005C3DFE /* DataStorage.m */; };
 		FC0A724A1A6728E800F7A990 /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC0A72491A6728E800F7A990 /* ListViewController.m */; };
 		FC0A724D1A672C8200F7A990 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC0A724C1A672C8200F7A990 /* SearchViewController.m */; };
-		FC0A72501A672F3600F7A990 /* InterestPoints.m in Sources */ = {isa = PBXBuildFile; fileRef = FC0A724F1A672F3600F7A990 /* InterestPoints.m */; };
 		FC10C4AA1A2242330031F784 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FC10C4A91A2242330031F784 /* main.m */; };
 		FC10C4AD1A2242330031F784 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FC10C4AC1A2242330031F784 /* AppDelegate.m */; };
 		FC10C4B01A2242330031F784 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC10C4AF1A2242330031F784 /* ViewController.m */; };
@@ -18,6 +16,12 @@
 		FC10C4B81A2242330031F784 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC10C4B61A2242330031F784 /* LaunchScreen.xib */; };
 		FC10C4C41A2242330031F784 /* BlocSpotTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FC10C4C31A2242330031F784 /* BlocSpotTests.m */; };
 		FC4CC1751A2254A800B6C475 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC4CC1741A2254A800B6C475 /* MapKit.framework */; };
+		FC7396761A772477009BD9C4 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC7396751A772477009BD9C4 /* CoreData.framework */; };
+		FC73967A1A7725F5009BD9C4 /* BlocSpot.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FC7396781A7725F5009BD9C4 /* BlocSpot.xcdatamodeld */; };
+		FC73967D1A772A1D009BD9C4 /* InterestPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = FC73967C1A772A1D009BD9C4 /* InterestPoint.m */; };
+		FC7396801A772A1E009BD9C4 /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = FC73967F1A772A1E009BD9C4 /* Comment.m */; };
+		FC7396831A772C06009BD9C4 /* PopoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC7396821A772C06009BD9C4 /* PopoutViewController.m */; };
+		FC89B4FB1A83065400647BAD /* InterestPointCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = FC89B4FA1A83065400647BAD /* InterestPointCategory.m */; };
 		FCC31C991A2E934F00228CBF /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCC31C981A2E934F00228CBF /* MapViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -32,14 +36,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2AA9B3421A2CF996005C3DFE /* DataStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataStorage.h; sourceTree = "<group>"; };
-		2AA9B3431A2CF996005C3DFE /* DataStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataStorage.m; sourceTree = "<group>"; };
 		FC0A72481A6728E800F7A990 /* ListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListViewController.h; sourceTree = "<group>"; };
 		FC0A72491A6728E800F7A990 /* ListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListViewController.m; sourceTree = "<group>"; };
 		FC0A724B1A672C8200F7A990 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
 		FC0A724C1A672C8200F7A990 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
-		FC0A724E1A672F3600F7A990 /* InterestPoints.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InterestPoints.h; sourceTree = "<group>"; };
-		FC0A724F1A672F3600F7A990 /* InterestPoints.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InterestPoints.m; sourceTree = "<group>"; };
 		FC10C4A41A2242330031F784 /* BlocSpot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlocSpot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC10C4A81A2242330031F784 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FC10C4A91A2242330031F784 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -53,6 +53,17 @@
 		FC10C4C21A2242330031F784 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FC10C4C31A2242330031F784 /* BlocSpotTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BlocSpotTests.m; sourceTree = "<group>"; };
 		FC4CC1741A2254A800B6C475 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		FC7396751A772477009BD9C4 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		FC7396771A772523009BD9C4 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		FC7396791A7725F5009BD9C4 /* BlocSpot.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BlocSpot.xcdatamodel; sourceTree = "<group>"; };
+		FC73967B1A772A1D009BD9C4 /* InterestPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InterestPoint.h; sourceTree = "<group>"; };
+		FC73967C1A772A1D009BD9C4 /* InterestPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InterestPoint.m; sourceTree = "<group>"; };
+		FC73967E1A772A1E009BD9C4 /* Comment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Comment.h; sourceTree = "<group>"; };
+		FC73967F1A772A1E009BD9C4 /* Comment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Comment.m; sourceTree = "<group>"; };
+		FC7396811A772C06009BD9C4 /* PopoutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopoutViewController.h; sourceTree = "<group>"; };
+		FC7396821A772C06009BD9C4 /* PopoutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopoutViewController.m; sourceTree = "<group>"; };
+		FC89B4F91A83065400647BAD /* InterestPointCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InterestPointCategory.h; sourceTree = "<group>"; };
+		FC89B4FA1A83065400647BAD /* InterestPointCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InterestPointCategory.m; sourceTree = "<group>"; };
 		FCC31C971A2E934F00228CBF /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		FCC31C981A2E934F00228CBF /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -62,6 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC7396761A772477009BD9C4 /* CoreData.framework in Frameworks */,
 				FC4CC1751A2254A800B6C475 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -79,6 +91,7 @@
 		FC10C49B1A2242330031F784 = {
 			isa = PBXGroup;
 			children = (
+				FC7396751A772477009BD9C4 /* CoreData.framework */,
 				FC4CC1741A2254A800B6C475 /* MapKit.framework */,
 				FC10C4A61A2242330031F784 /* BlocSpot */,
 				FC10C4C01A2242330031F784 /* BlocSpotTests */,
@@ -98,6 +111,14 @@
 		FC10C4A61A2242330031F784 /* BlocSpot */ = {
 			isa = PBXGroup;
 			children = (
+				FC7396771A772523009BD9C4 /* PrefixHeader.pch */,
+				FC7396781A7725F5009BD9C4 /* BlocSpot.xcdatamodeld */,
+				FC89B4F91A83065400647BAD /* InterestPointCategory.h */,
+				FC89B4FA1A83065400647BAD /* InterestPointCategory.m */,
+				FC73967E1A772A1E009BD9C4 /* Comment.h */,
+				FC73967F1A772A1E009BD9C4 /* Comment.m */,
+				FC73967B1A772A1D009BD9C4 /* InterestPoint.h */,
+				FC73967C1A772A1D009BD9C4 /* InterestPoint.m */,
 				FC10C4AB1A2242330031F784 /* AppDelegate.h */,
 				FC10C4AC1A2242330031F784 /* AppDelegate.m */,
 				FC10C4AE1A2242330031F784 /* ViewController.h */,
@@ -108,10 +129,8 @@
 				FC0A72491A6728E800F7A990 /* ListViewController.m */,
 				FCC31C971A2E934F00228CBF /* MapViewController.h */,
 				FCC31C981A2E934F00228CBF /* MapViewController.m */,
-				2AA9B3421A2CF996005C3DFE /* DataStorage.h */,
-				2AA9B3431A2CF996005C3DFE /* DataStorage.m */,
-				FC0A724E1A672F3600F7A990 /* InterestPoints.h */,
-				FC0A724F1A672F3600F7A990 /* InterestPoints.m */,
+				FC7396811A772C06009BD9C4 /* PopoutViewController.h */,
+				FC7396821A772C06009BD9C4 /* PopoutViewController.m */,
 				FC10C4B41A2242330031F784 /* Images.xcassets */,
 				FC10C4B61A2242330031F784 /* LaunchScreen.xib */,
 				FC10C4A71A2242330031F784 /* Supporting Files */,
@@ -249,13 +268,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC73967A1A7725F5009BD9C4 /* BlocSpot.xcdatamodeld in Sources */,
 				FC10C4B01A2242330031F784 /* ViewController.m in Sources */,
 				FC10C4AD1A2242330031F784 /* AppDelegate.m in Sources */,
+				FC7396831A772C06009BD9C4 /* PopoutViewController.m in Sources */,
+				FC7396801A772A1E009BD9C4 /* Comment.m in Sources */,
 				FC0A724A1A6728E800F7A990 /* ListViewController.m in Sources */,
 				FCC31C991A2E934F00228CBF /* MapViewController.m in Sources */,
 				FC10C4AA1A2242330031F784 /* main.m in Sources */,
-				2AA9B3441A2CF996005C3DFE /* DataStorage.m in Sources */,
-				FC0A72501A672F3600F7A990 /* InterestPoints.m in Sources */,
+				FC73967D1A772A1D009BD9C4 /* InterestPoint.m in Sources */,
+				FC89B4FB1A83065400647BAD /* InterestPointCategory.m in Sources */,
 				FC0A724D1A672C8200F7A990 /* SearchViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -455,6 +477,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		FC7396781A7725F5009BD9C4 /* BlocSpot.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				FC7396791A7725F5009BD9C4 /* BlocSpot.xcdatamodel */,
+			);
+			currentVersion = FC7396791A7725F5009BD9C4 /* BlocSpot.xcdatamodel */;
+			path = BlocSpot.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = FC10C49C1A2242330031F784 /* Project object */;
 }

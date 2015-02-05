@@ -7,9 +7,11 @@
 //
 
 #import "MapViewController.h"
-#import "InterestPoints.h"
+#import "InterestPoint.h"
 #import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
+#import "PopoutViewController.h"
+#import "AppDelegate.h"
 
 @interface MapViewController ()
 
@@ -17,6 +19,8 @@
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (strong, nonatomic) MKUserLocation *userLocation;
 @property (strong, nonatomic) NSMutableArray *annotations;
+@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+@property (strong, nonatomic) AppDelegate *appDelegate;
 
 @end
 
@@ -45,6 +49,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    self.appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    self.managedObjectContext = self.appDelegate.managedObjectContext;
+    
+    self.mapView.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -68,10 +77,18 @@
             NSLog(@"No Matches");
         else
             for (MKMapItem *item in response.mapItems) {
+                // create a new InterestPoint object
+                
+                // add interestPoint instead of item
                 [self.annotations addObject:item];
-                InterestPoints *interestPoint = [[InterestPoints alloc]init];
+                
+                NSEntityDescription *entity = [NSEntityDescription entityForName:@"InterestPoint" inManagedObjectContext:self.managedObjectContext];
+                InterestPoint *interestPoint = [[InterestPoint alloc] initWithEntity:entity insertIntoManagedObjectContext:nil];
+                interestPoint.xCoordinate = [NSNumber numberWithDouble:item.placemark.coordinate.latitude];
+                interestPoint.yCoordinate = [NSNumber numberWithDouble:item.placemark.coordinate.longitude];
                 interestPoint.coordinate = item.placemark.coordinate;
-                interestPoint.title = item.name;
+                interestPoint.name = item.name;
+//                interestPoint.title = item.name;
                 [self.mapView addAnnotation:interestPoint];
             }
     }];
