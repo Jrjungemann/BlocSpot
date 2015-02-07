@@ -182,7 +182,6 @@
     [self.cancelSearch removeFromSuperview];
     [self.clearSearch removeFromSuperview];
     [self.listButton removeFromSuperview];
-    [self.childView removeFromSuperview];
     
     [self addChildViewController:self.listViewController];
     [self.listViewController.view setFrame:CGRectMake(0, 0, self.viewWidth, self.viewHeight - 64)];
