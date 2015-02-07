@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		FC0A724A1A6728E800F7A990 /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC0A72491A6728E800F7A990 /* ListViewController.m */; };
-		FC0A724D1A672C8200F7A990 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC0A724C1A672C8200F7A990 /* SearchViewController.m */; };
 		FC10C4AA1A2242330031F784 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FC10C4A91A2242330031F784 /* main.m */; };
 		FC10C4AD1A2242330031F784 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FC10C4AC1A2242330031F784 /* AppDelegate.m */; };
 		FC10C4B01A2242330031F784 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC10C4AF1A2242330031F784 /* ViewController.m */; };
@@ -22,6 +20,7 @@
 		FC7396801A772A1E009BD9C4 /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = FC73967F1A772A1E009BD9C4 /* Comment.m */; };
 		FC7396831A772C06009BD9C4 /* PopoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC7396821A772C06009BD9C4 /* PopoutViewController.m */; };
 		FC89B4FB1A83065400647BAD /* InterestPointCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = FC89B4FA1A83065400647BAD /* InterestPointCategory.m */; };
+		FCB30F2D1A85C771001DFAC3 /* ListView.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB30F2C1A85C771001DFAC3 /* ListView.m */; };
 		FCC31C991A2E934F00228CBF /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCC31C981A2E934F00228CBF /* MapViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -36,10 +35,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		FC0A72481A6728E800F7A990 /* ListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListViewController.h; sourceTree = "<group>"; };
-		FC0A72491A6728E800F7A990 /* ListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListViewController.m; sourceTree = "<group>"; };
-		FC0A724B1A672C8200F7A990 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
-		FC0A724C1A672C8200F7A990 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		FC10C4A41A2242330031F784 /* BlocSpot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlocSpot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC10C4A81A2242330031F784 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FC10C4A91A2242330031F784 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -64,6 +59,8 @@
 		FC7396821A772C06009BD9C4 /* PopoutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopoutViewController.m; sourceTree = "<group>"; };
 		FC89B4F91A83065400647BAD /* InterestPointCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InterestPointCategory.h; sourceTree = "<group>"; };
 		FC89B4FA1A83065400647BAD /* InterestPointCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InterestPointCategory.m; sourceTree = "<group>"; };
+		FCB30F2B1A85C771001DFAC3 /* ListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListView.h; sourceTree = "<group>"; };
+		FCB30F2C1A85C771001DFAC3 /* ListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListView.m; sourceTree = "<group>"; };
 		FCC31C971A2E934F00228CBF /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		FCC31C981A2E934F00228CBF /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -123,10 +120,8 @@
 				FC10C4AC1A2242330031F784 /* AppDelegate.m */,
 				FC10C4AE1A2242330031F784 /* ViewController.h */,
 				FC10C4AF1A2242330031F784 /* ViewController.m */,
-				FC0A724B1A672C8200F7A990 /* SearchViewController.h */,
-				FC0A724C1A672C8200F7A990 /* SearchViewController.m */,
-				FC0A72481A6728E800F7A990 /* ListViewController.h */,
-				FC0A72491A6728E800F7A990 /* ListViewController.m */,
+				FCB30F2B1A85C771001DFAC3 /* ListView.h */,
+				FCB30F2C1A85C771001DFAC3 /* ListView.m */,
 				FCC31C971A2E934F00228CBF /* MapViewController.h */,
 				FCC31C981A2E934F00228CBF /* MapViewController.m */,
 				FC7396811A772C06009BD9C4 /* PopoutViewController.h */,
@@ -273,12 +268,11 @@
 				FC10C4AD1A2242330031F784 /* AppDelegate.m in Sources */,
 				FC7396831A772C06009BD9C4 /* PopoutViewController.m in Sources */,
 				FC7396801A772A1E009BD9C4 /* Comment.m in Sources */,
-				FC0A724A1A6728E800F7A990 /* ListViewController.m in Sources */,
 				FCC31C991A2E934F00228CBF /* MapViewController.m in Sources */,
 				FC10C4AA1A2242330031F784 /* main.m in Sources */,
 				FC73967D1A772A1D009BD9C4 /* InterestPoint.m in Sources */,
+				FCB30F2D1A85C771001DFAC3 /* ListView.m in Sources */,
 				FC89B4FB1A83065400647BAD /* InterestPointCategory.m in Sources */,
-				FC0A724D1A672C8200F7A990 /* SearchViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

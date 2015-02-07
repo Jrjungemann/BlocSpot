@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 #import "MapViewController.h"
-#import "ListViewController.h"
+#import "ListView.h"
 
 @interface ViewController ()
 
@@ -36,8 +36,7 @@
 // View Controllers
 @property (nonatomic, weak) UIViewController *currentlyVisibleController;
 @property (nonatomic, strong) MapViewController *mapViewController;
-@property (nonatomic, strong) ListViewController *listViewController;
-// TODO searchViewController
+@property (nonatomic, strong) ListView *listViewController;
 
 @end
 
@@ -48,6 +47,7 @@
     if (self) {
         self.currentlyVisibleController = self.listViewController;
         self.mapViewController = [MapViewController new];
+        self.listViewController = [ListView new];
     }
     return self;
 }
@@ -61,6 +61,8 @@
     self.viewHeight = self.screenBounds.size.height;
     
     self.view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.viewWidth, self.viewHeight)];
+    
+    [self.listViewController.view setFrame:CGRectMake(0, 0, self.viewWidth, self.viewHeight - 64)];
     
     self.view.backgroundColor = [UIColor whiteColor];
     
@@ -107,7 +109,6 @@
     [self.view addSubview:self.childView];
     [self.view addSubview:mapButtons];
     [self.view addSubview:searchButtons];
-    [self.view addSubview:listButtons];
     [self.view addSubview:self.appTitle];
     
     self.mapButton = mapButtons;
@@ -116,15 +117,19 @@
     self.cancelSearch = cancelSearchs;
     self.goSearch = goSearchs;
     self.clearSearch = clearSearches;
-
+    
+    [self addChildViewController:self.listViewController];
+    [self.listViewController.view setFrame:CGRectMake(0, 0, self.viewWidth, self.viewHeight - 64)];
+    [self.childView addSubview:self.listViewController.view];
+    [self.listViewController didMoveToParentViewController:self];
 }
 
 - (void) viewDidLayoutSubviews {
     
+    self.listButton.frame = CGRectMake(20, 30, 25, 25);
     self.mapButton.frame = CGRectMake(20, 30, 25, 25);
     self.appTitle.frame = CGRectMake((self.viewWidth / 2) - 40, 20, 80, 44);
     
-    self.listButton.frame = CGRectMake(self.viewWidth - 40, 30, 25, 25);
     self.searchButton.frame = CGRectMake(self.viewWidth - 80, 30, 25, 25);
     
     self.searchButton.backgroundColor = [UIColor whiteColor];
@@ -160,23 +165,37 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)mapPressed:(UIButton *)sender {
+- (void) listPressed:(UIButton *) sender {
+    
+
     [self.searchField removeFromSuperview];
     [self.goSearch removeFromSuperview];
     [self.cancelSearch removeFromSuperview];
     [self.clearSearch removeFromSuperview];
+    [self.listButton removeFromSuperview];
+    
+    [self addChildViewController:self.listViewController];
+    [self.listViewController.view setFrame:CGRectMake(0, 0, self.viewWidth, self.viewHeight - 64)];
+    [self.childView addSubview:self.listViewController.view];
+    [self.listViewController didMoveToParentViewController:self];
+    [self.view addSubview:self.mapButton];
+    
+}
+
+- (void)mapPressed:(UIButton *)sender {
+    
+    [self.searchField removeFromSuperview];
+    [self.goSearch removeFromSuperview];
+    [self.cancelSearch removeFromSuperview];
+    [self.clearSearch removeFromSuperview];
+    [self.mapButton removeFromSuperview];
+
     [self.mapViewController.view setFrame:CGRectMake(0, 0, self.viewWidth, self.viewHeight - 64)];
-    
-    // Show the MapViewController
-    if (self.currentlyVisibleController == self.mapViewController) {
-        return;
-    }
-    
     [self addChildViewController:self.mapViewController];
-    [self.mapViewController.view setFrame:CGRectMake(0, 0, self.viewWidth, self.viewHeight - 64)];
     [self.childView addSubview:self.mapViewController.view];
     [self.mapViewController didMoveToParentViewController:self];
-    self.currentlyVisibleController = self.mapViewController;
+    [self.view addSubview:self.listButton];
+
 }
 
 - (void)searchOpened:(id)sender {
@@ -222,7 +241,7 @@
     [self.view addSubview:self.goSearch];
 }
 
-- (void) clearPressed:(id)send {
+- (void) clearPressed:(id)sender {
     
     [self.cancelSearch removeFromSuperview];
     
@@ -234,10 +253,6 @@
     
     [self.clearSearch removeFromSuperview];
     [self.view addSubview:self.goSearch];
-}
-
-- (void)listPressed:(id)sender {
-    
 }
 
 @end
