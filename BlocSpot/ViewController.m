@@ -218,23 +218,20 @@
     [self.cancelSearch removeFromSuperview];
     [self.clearSearch removeFromSuperview];
     
-    if (self.currentlyVisibleController == self.mapViewController) {
-        [self.mapViewController.view setFrame:CGRectMake(0, 50, self.viewWidth, self.viewHeight - 114)];
-    } else if (self.currentlyVisibleController == self.listViewController) {
-        [self.listViewController.view setFrame:CGRectMake(0, 50, self.viewWidth, self.viewHeight -114)];
-    }
+    [self.mapViewController.view setFrame:CGRectMake(0, 50, self.viewWidth, self.viewHeight - 114)];
+    [self.listViewController.view setFrame:CGRectMake(0, 50, self.viewWidth, self.viewHeight -114)];
     
     [self.view addSubview:self.goSearch];
     [self.view addSubview:self.searchField];
-
-    if ([self.searchField.text  isEqual: @""]) {
-        return;
-    }
     
     [self.view addSubview:self.clearSearch];
 }
 
 - (void)searchPressed:(id)sender {
+    
+    if ([self.searchField.text  isEqual: @""]) {
+        return;
+    }
     
     [self.goSearch removeFromSuperview];
     
