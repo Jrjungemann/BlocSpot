@@ -10,7 +10,6 @@
 #import "InterestPoint.h"
 #import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
-#import "PopoutViewController.h"
 #import "AppDelegate.h"
 
 @interface MapViewController ()
@@ -42,7 +41,11 @@
     self.userLocation = [[MKUserLocation alloc] init];
     
     self.mapView.userTrackingMode = YES;
+        
+    UIView *background = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, viewHeight)];
+    background.backgroundColor = [UIColor whiteColor];
     
+    [self.view addSubview:background];
     [self.view addSubview:self.mapView];
 }
 

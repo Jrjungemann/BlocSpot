@@ -17,7 +17,7 @@
 
 @property (strong, nonatomic) UIView *childView;
 
-// Search Properties
+// Search Controller Properties
 @property (strong, nonatomic) UITextField *searchField;
 @property (strong, nonatomic) UIButton *goSearch;
 @property (strong, nonatomic) UIButton *cancelSearch;
@@ -34,8 +34,9 @@
 @property (nonatomic) NSInteger viewWidth;
 @property (nonatomic) NSInteger viewHeight;
 
-//Labels
+// Category Properties
 @property (strong, nonatomic) UILabel *categoriesLabel;
+@property (strong, nonatomic) UIButton *addCategory;
 
 // View Controllers
 @property (nonatomic, strong) UIViewController *currentlyVisibleController;
@@ -86,32 +87,31 @@
     UIImage *mapImage = [UIImage imageNamed:@"map_marker-50"];
     [mapButtons setImage:mapImage forState:UIControlStateNormal];
     
-    //Create Search Button
+    //Create Search Related Buttons
     UIButton *searchButtons = [UIButton buttonWithType:UIButtonTypeSystem];
     UIImage *searchImage = [UIImage imageNamed:@"search-50"];
     [searchButtons setImage:searchImage forState:UIControlStateNormal];
+    
+    UIButton *goSearchs = [UIButton buttonWithType:UIButtonTypeSystem];
+    goSearchs.titleLabel.text = @"Search";
+    goSearchs.titleLabel.font = [UIFont systemFontOfSize:18];
+    
+    UIButton *cancelSearchs = [UIButton buttonWithType:UIButtonTypeSystem];
+    cancelSearchs.titleLabel.text = @"Cancel";
+    cancelSearchs.titleLabel.font = [UIFont systemFontOfSize:18];
     
     //Create List Button
     UIButton *listButtons = [UIButton buttonWithType:UIButtonTypeSystem];
     UIImage *listImage = [UIImage imageNamed:@"content-50"];
     [listButtons setImage:listImage forState:UIControlStateNormal];
     
-    //Create Category Button
+    //Create Category Related Items
     UIButton *categoryButtons = [UIButton buttonWithType:UIButtonTypeSystem];
     UIImage *categoryImage = [UIImage imageNamed:@"filter-50"];
     [categoryButtons setImage:categoryImage forState:UIControlStateNormal];
     
-    //Create Go Button
-    UIButton *goSearchs = [UIButton buttonWithType:UIButtonTypeSystem];
-    goSearchs.titleLabel.text = @"Search";
-    goSearchs.titleLabel.font = [UIFont systemFontOfSize:18];
+    UIButton *addCategory = [UIButton buttonWithType:UIButtonTypeContactAdd];
     
-    //Create Cancel Button
-    UIButton *cancelSearchs = [UIButton buttonWithType:UIButtonTypeSystem];
-    cancelSearchs.titleLabel.text = @"Cancel";
-    cancelSearchs.titleLabel.font = [UIFont systemFontOfSize:18];
-    
-    //Create Category Label
     self.categoriesLabel = [UILabel new];
     self.categoriesLabel.text = @"Categories";
 
@@ -129,6 +129,7 @@
     self.cancelSearch = cancelSearchs;
     self.goSearch = goSearchs;
     self.categoryButton = categoryButtons;
+    self.addCategory = addCategory;
     
     [self addChildViewController:self.listViewController];
     [self.listViewController.view setFrame:CGRectMake(0, 0, self.viewWidth, self.viewHeight - 64)];
@@ -147,7 +148,8 @@
     
     self.searchButton.backgroundColor = [UIColor whiteColor];
     
-    self.categoriesLabel.frame = CGRectMake((self.viewWidth / 2) - 45, 50, 100, 44);
+    self.categoriesLabel.frame = CGRectMake((self.viewWidth / 2) - 45, 55, 100, 44);
+    self.addCategory.frame = CGRectMake(self.viewWidth - 80, 30, 25, 25);
     
     self.cancelSearch.frame = CGRectMake(self.viewWidth * .75, 64, 60, 40);
     self.goSearch.frame = CGRectMake(self.viewWidth * .75, 64, 60, 40);
@@ -164,6 +166,7 @@
     [self.goSearch addTarget:self action:@selector(searchPressed:) forControlEvents:UIControlEventTouchUpInside];
     [self.cancelSearch addTarget:self action:@selector(cancelPressed:) forControlEvents:UIControlEventTouchUpInside];
     [self.categoryButton addTarget:self action:@selector(categoryPressed:) forControlEvents:UIControlEventTouchUpInside];
+    [self.addCategory addTarget:self action:@selector(addCategoryPressed:) forControlEvents:UIControlEventTouchUpInside];
     
     [self.appTitle setText:@"BlocSpot"];
     
@@ -188,12 +191,13 @@
     [self.goSearch removeFromSuperview];
     [self.cancelSearch removeFromSuperview];
     [self.categoriesLabel removeFromSuperview];
+    [self.addCategory removeFromSuperview];
     
     [self addChildViewController:self.listViewController];
     [self.listViewController.view setFrame:CGRectMake(0, 0, self.viewWidth, self.viewHeight - 64)];
     [self.childView addSubview:self.listViewController.view];
     [self.listViewController didMoveToParentViewController:self];
-    [self.view addSubview:self.mapButton];
+    [self.view addSubview:self.searchButton];
     
     self.currentlyVisibleController = self.listViewController;
     
@@ -209,13 +213,13 @@
     [self.goSearch removeFromSuperview];
     [self.cancelSearch removeFromSuperview];
     [self.categoriesLabel removeFromSuperview];
-    [self.listViewController removeFromParentViewController];
-
+    [self.addCategory removeFromSuperview];
+    
     [self.mapViewController.view setFrame:CGRectMake(0, 0, self.viewWidth, self.viewHeight - 64)];
     [self addChildViewController:self.mapViewController];
     [self.childView addSubview:self.mapViewController.view];
     [self.mapViewController didMoveToParentViewController:self];
-    [self.view addSubview:self.listButton];
+    [self.view addSubview:self.searchButton];
     
     self.currentlyVisibleController = self.mapViewController;
 
@@ -262,24 +266,29 @@
     [self.view addSubview:self.goSearch];
 }
 
-- (void) categoryPressed: (id) sender {
+- (void) categoryPressed:(id)sender {
     
     if (self.currentlyVisibleController == self.categoryViewController) {
         return;
     }
     
+    [self.goSearch removeFromSuperview];
+    [self.searchButton removeFromSuperview];
     [self.searchField removeFromSuperview];
     
-    [self.mapViewController.view setFrame:CGRectMake(0, 50, self.viewWidth, self.viewHeight - 114)];
-    [self.listViewController.view setFrame:CGRectMake(0, 50, self.viewWidth, self.viewHeight - 114)];
-    [self.categoryViewController.view setFrame:CGRectMake(0, 25, self.viewWidth, self.viewHeight - 89)];
+    [self.categoryViewController.view setFrame:CGRectMake(0, 0, self.viewWidth, self.viewHeight)];
     [self addChildViewController:self.categoryViewController];
     [self.childView addSubview:self.categoryViewController.view];
     [self.categoryViewController didMoveToParentViewController:self];
     
     [self.view addSubview:self.categoriesLabel];
+    [self.view addSubview:self.addCategory];
 
     self.currentlyVisibleController = self.categoryViewController;
+}
+
+- (void) addCategoryPressed:(id)sender {
+    
 }
 
 @end

@@ -14,7 +14,6 @@
 @property UITableView *categoryList;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (strong, nonatomic) AppDelegate *appDelegate;
-@property (strong, nonatomic) UIButton *addCategory;
 
 @end
 
@@ -27,8 +26,14 @@
     NSInteger viewWidth = screenBounds.size.width;
     NSInteger viewHeight = screenBounds.size.height;
     
-    self.categoryList = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, viewHeight)];
-
+    self.categoryList = [[UITableView alloc] initWithFrame:CGRectMake(0, 30, viewWidth, 396)];
+    self.view.frame = CGRectMake(0, 0, viewWidth, viewHeight);
+    
+    UIView *background = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, viewHeight)];
+    background.backgroundColor = [UIColor whiteColor];
+    
+    [self.view addSubview:background];
+    [self.view addSubview:self.categoryList];
 }
 
 - (void)viewDidLoad {
@@ -63,7 +68,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 5;
+    return 9;
 }
 
 @end

@@ -28,6 +28,10 @@
     
     self.listView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, viewHeight)];
     
+    UIView *background = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, viewHeight)];
+    background.backgroundColor = [UIColor whiteColor];
+    
+    [self.view addSubview:background];
     [self.view addSubview:self.listView];
 }
 
