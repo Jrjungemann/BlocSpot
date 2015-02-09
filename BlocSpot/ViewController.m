@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "MapViewController.h"
 #import "ListView.h"
+#import "CategoryViewController.h"
 
 @interface ViewController ()
 
@@ -21,7 +22,6 @@
 @property (strong, nonatomic) UIButton *goSearch;
 @property (strong, nonatomic) UIButton *cancelSearch;
 @property (strong, nonatomic) NSMutableArray *searchList;
-@property (strong, nonatomic) UIButton *clearSearch;
 
 // Navigation Buttons
 @property (strong, nonatomic) UIButton *mapButton;
@@ -34,10 +34,14 @@
 @property (nonatomic) NSInteger viewWidth;
 @property (nonatomic) NSInteger viewHeight;
 
+//Labels
+@property (strong, nonatomic) UILabel *categoriesLabel;
+
 // View Controllers
-@property (nonatomic, weak) UIViewController *currentlyVisibleController;
+@property (nonatomic, strong) UIViewController *currentlyVisibleController;
 @property (nonatomic, strong) MapViewController *mapViewController;
 @property (nonatomic, strong) ListView *listViewController;
+@property (nonatomic, strong) CategoryViewController *categoryViewController;
 
 @end
 
@@ -49,6 +53,7 @@
         self.currentlyVisibleController = self.listViewController;
         self.mapViewController = [MapViewController new];
         self.listViewController = [ListView new];
+        self.categoryViewController = [CategoryViewController new];
     }
     return self;
 }
@@ -106,14 +111,14 @@
     cancelSearchs.titleLabel.text = @"Cancel";
     cancelSearchs.titleLabel.font = [UIFont systemFontOfSize:18];
     
-    //Clear Searches
-    UIButton *clearSearches = [UIButton buttonWithType:UIButtonTypeSystem];
-    clearSearches.titleLabel.text = @"X";
-    clearSearches.titleLabel.font = [UIFont systemFontOfSize:18];
-    clearSearches.tintColor = [UIColor grayColor];
-    
+    //Create Category Label
+    self.categoriesLabel = [UILabel new];
+    self.categoriesLabel.text = @"Categories";
+
+    //Add Subviews
     [self.view addSubview:self.childView];
     [self.view addSubview:mapButtons];
+    [self.view addSubview:listButtons];
     [self.view addSubview:searchButtons];
     [self.view addSubview:categoryButtons];
     [self.view addSubview:self.appTitle];
@@ -123,7 +128,6 @@
     self.listButton = listButtons;
     self.cancelSearch = cancelSearchs;
     self.goSearch = goSearchs;
-    self.clearSearch = clearSearches;
     self.categoryButton = categoryButtons;
     
     [self addChildViewController:self.listViewController];
@@ -135,7 +139,7 @@
 - (void) viewDidLayoutSubviews {
     
     self.listButton.frame = CGRectMake(20, 30, 25, 25);
-    self.mapButton.frame = CGRectMake(20, 30, 25, 25);
+    self.mapButton.frame = CGRectMake(60, 30, 25, 25);
     self.appTitle.frame = CGRectMake((self.viewWidth / 2) - 40, 20, 80, 44);
     
     self.categoryButton.frame = CGRectMake(self.viewWidth - 40, 30, 25, 25);
@@ -143,9 +147,10 @@
     
     self.searchButton.backgroundColor = [UIColor whiteColor];
     
+    self.categoriesLabel.frame = CGRectMake((self.viewWidth / 2) - 45, 50, 100, 44);
+    
     self.cancelSearch.frame = CGRectMake(self.viewWidth * .75, 64, 60, 40);
     self.goSearch.frame = CGRectMake(self.viewWidth * .75, 64, 60, 40);
-    self.clearSearch.frame = CGRectMake(self.viewWidth * .6, 64, 60, 40);
     self.searchField.frame = CGRectMake(20, 64, self.viewWidth * 0.5, 40);
 }
 
@@ -158,13 +163,12 @@
     [self.listButton addTarget:self action:@selector(listPressed:) forControlEvents:UIControlEventTouchUpInside];
     [self.goSearch addTarget:self action:@selector(searchPressed:) forControlEvents:UIControlEventTouchUpInside];
     [self.cancelSearch addTarget:self action:@selector(cancelPressed:) forControlEvents:UIControlEventTouchUpInside];
-    [self.clearSearch addTarget:self action:@selector(clearPressed:) forControlEvents:UIControlEventTouchUpInside];
+    [self.categoryButton addTarget:self action:@selector(categoryPressed:) forControlEvents:UIControlEventTouchUpInside];
     
     [self.appTitle setText:@"BlocSpot"];
     
     [self.goSearch setTitle:NSLocalizedString(@"Search", @"Search Button") forState:UIControlStateNormal];
     [self.cancelSearch setTitle:NSLocalizedString(@"Cancel", @"Cancel Button") forState:UIControlStateNormal];
-    [self.clearSearch setTitle:NSLocalizedString(@"X", @"Clear Search History") forState:UIControlStateNormal];
 }
 
 
@@ -176,12 +180,14 @@
 
 - (void) listPressed:(UIButton *) sender {
     
+    if (self.currentlyVisibleController == self.listViewController) {
+        return;
+    }
 
     [self.searchField removeFromSuperview];
     [self.goSearch removeFromSuperview];
     [self.cancelSearch removeFromSuperview];
-    [self.clearSearch removeFromSuperview];
-    [self.listButton removeFromSuperview];
+    [self.categoriesLabel removeFromSuperview];
     
     [self addChildViewController:self.listViewController];
     [self.listViewController.view setFrame:CGRectMake(0, 0, self.viewWidth, self.viewHeight - 64)];
@@ -195,11 +201,14 @@
 
 - (void)mapPressed:(UIButton *)sender {
     
+    if (self.currentlyVisibleController == self.mapViewController) {
+        return;
+    }
+    
     [self.searchField removeFromSuperview];
     [self.goSearch removeFromSuperview];
     [self.cancelSearch removeFromSuperview];
-    [self.clearSearch removeFromSuperview];
-    [self.mapButton removeFromSuperview];
+    [self.categoriesLabel removeFromSuperview];
     [self.listViewController removeFromParentViewController];
 
     [self.mapViewController.view setFrame:CGRectMake(0, 0, self.viewWidth, self.viewHeight - 64)];
@@ -216,15 +225,12 @@
     [self.searchField removeFromSuperview];
     [self.goSearch removeFromSuperview];
     [self.cancelSearch removeFromSuperview];
-    [self.clearSearch removeFromSuperview];
     
     [self.mapViewController.view setFrame:CGRectMake(0, 50, self.viewWidth, self.viewHeight - 114)];
-    [self.listViewController.view setFrame:CGRectMake(0, 50, self.viewWidth, self.viewHeight -114)];
+    [self.listViewController.view setFrame:CGRectMake(0, 50, self.viewWidth, self.viewHeight - 114)];
     
     [self.view addSubview:self.goSearch];
     [self.view addSubview:self.searchField];
-    
-    [self.view addSubview:self.clearSearch];
 }
 
 - (void)searchPressed:(id)sender {
@@ -239,7 +245,6 @@
         [self.mapViewController searchMapWith:self.searchField.text];
     } //else if (self.currentlyVisibleController == self.listViewController)
     
-    [self.view addSubview:self.clearSearch];
     [self.view addSubview:self.cancelSearch];
 }
 
@@ -257,18 +262,24 @@
     [self.view addSubview:self.goSearch];
 }
 
-- (void) clearPressed:(id)sender {
+- (void) categoryPressed: (id) sender {
     
-    [self.cancelSearch removeFromSuperview];
-    
-    self.searchField.text = @"";
-    
-    if (self.currentlyVisibleController == self.mapViewController) {
-        [self.mapViewController cancelSearch];
+    if (self.currentlyVisibleController == self.categoryViewController) {
+        return;
     }
     
-    [self.clearSearch removeFromSuperview];
-    [self.view addSubview:self.goSearch];
+    [self.searchField removeFromSuperview];
+    
+    [self.mapViewController.view setFrame:CGRectMake(0, 50, self.viewWidth, self.viewHeight - 114)];
+    [self.listViewController.view setFrame:CGRectMake(0, 50, self.viewWidth, self.viewHeight - 114)];
+    [self.categoryViewController.view setFrame:CGRectMake(0, 25, self.viewWidth, self.viewHeight - 89)];
+    [self addChildViewController:self.categoryViewController];
+    [self.childView addSubview:self.categoryViewController.view];
+    [self.categoryViewController didMoveToParentViewController:self];
+    
+    [self.view addSubview:self.categoriesLabel];
+
+    self.currentlyVisibleController = self.categoryViewController;
 }
 
 @end

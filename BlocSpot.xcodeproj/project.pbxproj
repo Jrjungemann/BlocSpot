@@ -18,10 +18,11 @@
 		FC73967A1A7725F5009BD9C4 /* BlocSpot.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FC7396781A7725F5009BD9C4 /* BlocSpot.xcdatamodeld */; };
 		FC73967D1A772A1D009BD9C4 /* InterestPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = FC73967C1A772A1D009BD9C4 /* InterestPoint.m */; };
 		FC7396801A772A1E009BD9C4 /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = FC73967F1A772A1E009BD9C4 /* Comment.m */; };
-		FC7396831A772C06009BD9C4 /* PopoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC7396821A772C06009BD9C4 /* PopoutViewController.m */; };
 		FC89B4FB1A83065400647BAD /* InterestPointCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = FC89B4FA1A83065400647BAD /* InterestPointCategory.m */; };
 		FCB30F2D1A85C771001DFAC3 /* ListView.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB30F2C1A85C771001DFAC3 /* ListView.m */; };
 		FCC31C991A2E934F00228CBF /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCC31C981A2E934F00228CBF /* MapViewController.m */; };
+		FCCFE5701A885A4A00207ED1 /* UIColorRGBValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = FCCFE56F1A885A4A00207ED1 /* UIColorRGBValueTransformer.m */; };
+		FCCFE5761A885E4C00207ED1 /* CategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCCFE5751A885E4C00207ED1 /* CategoryViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,14 +56,16 @@
 		FC73967C1A772A1D009BD9C4 /* InterestPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InterestPoint.m; sourceTree = "<group>"; };
 		FC73967E1A772A1E009BD9C4 /* Comment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Comment.h; sourceTree = "<group>"; };
 		FC73967F1A772A1E009BD9C4 /* Comment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Comment.m; sourceTree = "<group>"; };
-		FC7396811A772C06009BD9C4 /* PopoutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopoutViewController.h; sourceTree = "<group>"; };
-		FC7396821A772C06009BD9C4 /* PopoutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopoutViewController.m; sourceTree = "<group>"; };
 		FC89B4F91A83065400647BAD /* InterestPointCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InterestPointCategory.h; sourceTree = "<group>"; };
 		FC89B4FA1A83065400647BAD /* InterestPointCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InterestPointCategory.m; sourceTree = "<group>"; };
 		FCB30F2B1A85C771001DFAC3 /* ListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListView.h; sourceTree = "<group>"; };
 		FCB30F2C1A85C771001DFAC3 /* ListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListView.m; sourceTree = "<group>"; };
 		FCC31C971A2E934F00228CBF /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		FCC31C981A2E934F00228CBF /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		FCCFE56E1A885A4A00207ED1 /* UIColorRGBValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIColorRGBValueTransformer.h; sourceTree = "<group>"; };
+		FCCFE56F1A885A4A00207ED1 /* UIColorRGBValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIColorRGBValueTransformer.m; sourceTree = "<group>"; };
+		FCCFE5741A885E4C00207ED1 /* CategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryViewController.h; sourceTree = "<group>"; };
+		FCCFE5751A885E4C00207ED1 /* CategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,13 +112,6 @@
 			isa = PBXGroup;
 			children = (
 				FC7396771A772523009BD9C4 /* PrefixHeader.pch */,
-				FC7396781A7725F5009BD9C4 /* BlocSpot.xcdatamodeld */,
-				FC89B4F91A83065400647BAD /* InterestPointCategory.h */,
-				FC89B4FA1A83065400647BAD /* InterestPointCategory.m */,
-				FC73967E1A772A1E009BD9C4 /* Comment.h */,
-				FC73967F1A772A1E009BD9C4 /* Comment.m */,
-				FC73967B1A772A1D009BD9C4 /* InterestPoint.h */,
-				FC73967C1A772A1D009BD9C4 /* InterestPoint.m */,
 				FC10C4AB1A2242330031F784 /* AppDelegate.h */,
 				FC10C4AC1A2242330031F784 /* AppDelegate.m */,
 				FC10C4AE1A2242330031F784 /* ViewController.h */,
@@ -124,8 +120,17 @@
 				FCB30F2C1A85C771001DFAC3 /* ListView.m */,
 				FCC31C971A2E934F00228CBF /* MapViewController.h */,
 				FCC31C981A2E934F00228CBF /* MapViewController.m */,
-				FC7396811A772C06009BD9C4 /* PopoutViewController.h */,
-				FC7396821A772C06009BD9C4 /* PopoutViewController.m */,
+				FCCFE5741A885E4C00207ED1 /* CategoryViewController.h */,
+				FCCFE5751A885E4C00207ED1 /* CategoryViewController.m */,
+				FC7396781A7725F5009BD9C4 /* BlocSpot.xcdatamodeld */,
+				FC89B4F91A83065400647BAD /* InterestPointCategory.h */,
+				FC89B4FA1A83065400647BAD /* InterestPointCategory.m */,
+				FC73967E1A772A1E009BD9C4 /* Comment.h */,
+				FC73967F1A772A1E009BD9C4 /* Comment.m */,
+				FC73967B1A772A1D009BD9C4 /* InterestPoint.h */,
+				FC73967C1A772A1D009BD9C4 /* InterestPoint.m */,
+				FCCFE56E1A885A4A00207ED1 /* UIColorRGBValueTransformer.h */,
+				FCCFE56F1A885A4A00207ED1 /* UIColorRGBValueTransformer.m */,
 				FC10C4B41A2242330031F784 /* Images.xcassets */,
 				FC10C4B61A2242330031F784 /* LaunchScreen.xib */,
 				FC10C4A71A2242330031F784 /* Supporting Files */,
@@ -266,7 +271,8 @@
 				FC73967A1A7725F5009BD9C4 /* BlocSpot.xcdatamodeld in Sources */,
 				FC10C4B01A2242330031F784 /* ViewController.m in Sources */,
 				FC10C4AD1A2242330031F784 /* AppDelegate.m in Sources */,
-				FC7396831A772C06009BD9C4 /* PopoutViewController.m in Sources */,
+				FCCFE5761A885E4C00207ED1 /* CategoryViewController.m in Sources */,
+				FCCFE5701A885A4A00207ED1 /* UIColorRGBValueTransformer.m in Sources */,
 				FC7396801A772A1E009BD9C4 /* Comment.m in Sources */,
 				FCC31C991A2E934F00228CBF /* MapViewController.m in Sources */,
 				FC10C4AA1A2242330031F784 /* main.m in Sources */,
